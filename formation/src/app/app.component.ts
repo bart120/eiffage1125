@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+import { MenuComponent } from "./shared/menu/menu.component";
+import { FooterComponent } from "./shared/footer/footer.component";
+import { PrimeModule } from './core/prime.module';
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, PrimeModule, MenuComponent, FooterComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'formation';
+  title = 'formation angular';
 }
