@@ -15,6 +15,20 @@ export class MenuComponent implements OnInit {
         {
             label: 'Accueil',
             icon: 'pi pi-home',
+        },
+        {
+            label: 'Todos',
+            icon: 'pi pi-search',
+            items: [
+                {
+                    label: 'Liste des todo',
+                    icon: 'pi pi-list',
+                },
+                {
+                    label: 'Ajouter todo',
+                    icon: 'pi pi-plus',
+                }
+            ]
         }
     ];
 
