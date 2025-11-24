@@ -23,10 +23,12 @@ export class MenuComponent implements OnInit {
                 {
                     label: 'Liste des todo',
                     icon: 'pi pi-list',
+                    routerLink: '/todos'
                 },
                 {
                     label: 'Ajouter todo',
                     icon: 'pi pi-plus',
+                    routerLink: '/todos/add'
                 }
             ]
         }
