@@ -1,10 +1,32 @@
 <h1>Connexion</h1>
 <form class="flex flex-col gap-4 w-full sm:w-56">
     <div class="flex flex-col gap-1">
-        <input pInputText type="text" id="username" placeholder="Username" name="username" />
+        <input pInputText type="text" id="username" placeholder="Login" name="username" (keyup.enter)="pass.focus()" />
     </div>
     <div class="flex flex-col gap-1">
-        <input pInputText type="email" id="email" name="email" placeholder="Email" />
+        <input pInputText type="password" id="password" name="password" placeholder="Mot de passe" #pass />
+
+        <ng-template *ngIf="pass.value.length < 6 && pass.value.length > 0; else passOK">
+            <p-message severity="warn">
+                Le mot de passe doit contenir au moins 6 caractères.
+            </p-message>
+        </ng-template>
+        <ng-template #passOK>
+            <p-message *ngIf="pass.value.length > 0" severity="success">
+                Mot de passe valide.
+            </p-message>
+        </ng-template>
+
+        @if(pass.value.length < 6 && pass.value.length> 0){
+            <p-message severity="warn">
+                Le mot de passe doit contenir au moins 6 caractères.
+            </p-message>
+            }
+            @else if(pass.value.length >0){
+            <p-message severity="success">
+                Mot de passe valide.
+            </p-message>
+            }
     </div>
     <button pButton severity="secondary" type="button"><span pButtonLabel>Connexion</span></button>
 </form>
