@@ -15,6 +15,7 @@ export class MenuComponent implements OnInit {
         {
             label: 'Accueil',
             icon: 'pi pi-home',
+            routerLink: '/'
         },
         {
             label: 'Todos',
@@ -31,6 +32,11 @@ export class MenuComponent implements OnInit {
                     routerLink: '/todos/add'
                 }
             ]
+        },
+        {
+            label: 'Se connecter',
+            icon: 'pi pi-sign-in',
+            routerLink: '/auth/login'
         }
     ];
 

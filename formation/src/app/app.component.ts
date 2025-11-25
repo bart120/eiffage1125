@@ -5,6 +5,7 @@ import { MenuComponent } from "./shared/menu/menu.component";
 import { FooterComponent } from "./shared/footer/footer.component";
 import { PrimeModule } from './core/prime.module';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
