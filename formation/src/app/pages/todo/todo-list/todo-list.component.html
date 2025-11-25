@@ -1,1 +1,19 @@
-<p>todo-list works!</p>
+<h1>A faire!</h1>
+<p-table [value]="todos">
+    <ng-template #header>
+        <tr>
+            <th>User</th>
+            <th>ID</th>
+            <th>Titre</th>
+            <th>Fini?</th>
+        </tr>
+    </ng-template>
+    <ng-template #body let-todo>
+        <tr>
+            <td>{{ todo.userId }}</td>
+            <td>{{ todo.id }}</td>
+            <td>{{ todo.title }}</td>
+            <td>{{ todo.completed }}</td>
+        </tr>
+    </ng-template>
+</p-table>
