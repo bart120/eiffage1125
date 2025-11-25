@@ -1,7 +1,8 @@
 <h1>Connexion</h1>
 <form class="flex flex-col gap-4 w-full sm:w-56">
     <div class="flex flex-col gap-1">
-        <input pInputText type="text" id="username" placeholder="Login" name="username" (keyup.enter)="pass.focus()" />
+        <input pInputText type="text" id="username" placeholder="Login" name="username" (keyup.enter)="pass.focus()"
+            #login />
     </div>
     <div class="flex flex-col gap-1">
         <input pInputText type="password" id="password" name="password" placeholder="Mot de passe" #pass />
@@ -12,7 +13,7 @@
             </p-message>
         </ng-template>
         <ng-template #passOK>
-            <p-message *ngIf="pass.value.length > 0" severity="success">
+            <p-message *ngIf="pass.value.length> 0" severity="success">
                 Mot de passe valide.
             </p-message>
         </ng-template>
@@ -28,5 +29,6 @@
             </p-message>
             }
     </div>
-    <button pButton severity="secondary" type="button"><span pButtonLabel>Connexion</span></button>
+    <button pButton severity="secondary" type="button" (click)="onLogin(login.value)"><span
+            pButtonLabel>Connexion</span></button>
 </form>
