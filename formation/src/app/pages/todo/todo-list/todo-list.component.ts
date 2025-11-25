@@ -18,8 +18,12 @@ export class TodoListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.todoServ.getAllTodos().subscribe(data => this.todos = data);
+    this.todoServ.getTodosByUserId(1).subscribe(data => { this.todos = data; console.log(this.todos); });
 
   }
+
+  /*async ngOnInit() {
+    this.todos = await this.todoServ.getTodosByUserIdAsync(1);
+  }*/
 
 }

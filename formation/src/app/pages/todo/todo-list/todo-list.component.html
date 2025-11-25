@@ -3,6 +3,7 @@
     <ng-template #header>
         <tr>
             <th>User</th>
+            <th>Nom</th>
             <th>ID</th>
             <th>Titre</th>
             <th>Fini?</th>
@@ -11,6 +12,9 @@
     <ng-template #body let-todo>
         <tr>
             <td>{{ todo.userId }}</td>
+            <td>
+                {{$any(todo.user$ | async)?.name}}
+            </td>
             <td>{{ todo.id }}</td>
             <td>{{ todo.title }}</td>
             <td>{{ todo.completed }}</td>
