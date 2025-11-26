@@ -8,6 +8,7 @@ export class AuthService {
 
     private userSignal = signal<UserModel>({ id: 0, name: '', email: '', username: '' });
 
+    private userToken: string = 'SDFSQDGFSFSQD0E9AT8IUGZJDSUA4289TOGFEIZSDUVDFG8Z';
 
     constructor(@Inject(PLATFORM_ID) platformId: Object) {
         this.isBrowser = isPlatformBrowser(platformId);
@@ -37,6 +38,10 @@ export class AuthService {
 
     getUser() {
         return this.userSignal;
+    }
+
+    getToken(): string {
+        return this.userToken;
     }
 
 }
