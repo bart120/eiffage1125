@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
 import { TodoService } from '../../../core/services/todo.service';
 import { TodoModel } from '../../../core/models/todo.model';
 import { catchError, Observable, of, shareReplay } from 'rxjs';
@@ -11,7 +11,7 @@ import { UserModel } from '../../../core/models/user.model';
 })
 export class TodoListComponent implements OnInit {
 
-  todos = signal<Array<TodoModel>>([]);
+  todos: WritableSignal<Array<TodoModel>> = signal<Array<TodoModel>>([]);
 
   users = new Map<number, Observable<UserModel>>();
 
