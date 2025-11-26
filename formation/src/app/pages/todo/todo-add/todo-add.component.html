@@ -3,6 +3,9 @@
 <form [formGroup]="formTodo" (ngSubmit)="onSubmit()" class="flex flex-col gap-4 w-full sm:w-56">
     <div class="flex flex-col gap-1">
         <input pInputText type="text" id="title" placeholder="Titre" formControlName="title" />
+        @if(formTodo.get('title')?.invalid && formTodo.get('title')?.touched) {
+        <p-message severity="error" text="Le titre est requis et doit contenir au moins 3 caractères."></p-message>
+        }
     </div>
     <div class="flex items-center gap-2">
         <p-checkbox formControlName="completed" [binary]="true" inputId="completed" />
@@ -14,5 +17,7 @@
     </div>
 
 
-    <button pButton severity="secondary" type="submit"><span pButtonLabel>Submit</span></button>
+    <button pButton severity="secondary" type="submit">
+        <span pButtonLabel>Enregistrer</span>
+    </button>
 </form>

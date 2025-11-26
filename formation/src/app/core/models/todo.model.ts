@@ -6,5 +6,5 @@ export interface TodoModel {
     id: number;
     title: string;
     completed: boolean
-    user$: Observable<UserModel>
+    user$?: Observable<UserModel>
 }

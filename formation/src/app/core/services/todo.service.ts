@@ -36,6 +36,10 @@ export class TodoService {
             .pipe(map(todos => todos.filter(t => t.userId === userId).sort(this.compareTitles))));
     }
 
+    addTodo(todo: TodoModel): Observable<TodoModel> {
+        return this.httpClient.post<TodoModel>(`${environment.API_URL}/todos`, todo);
+    }
+
     /*getAllTodos(): Observable<Array<TodoModel>> {
 
         return this.httpClient.get<Array<TodoModel>>(`${environment.API_URL}/todos`).pipe();
