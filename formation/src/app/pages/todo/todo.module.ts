@@ -5,6 +5,7 @@ import { TodoAddComponent } from './todo-add/todo-add.component';
 import { TodoRoutingModule } from './todo-routing.module';
 import { TodoService } from '../../core/services/todo.service';
 import { PrimeModule } from '../../core/prime.module';
+import { PipeModule } from '../../core/pipes/pipe.module';
 
 
 
@@ -19,7 +20,8 @@ import { PrimeModule } from '../../core/prime.module';
   imports: [
     CommonModule,
     TodoRoutingModule,
-    PrimeModule
+    PrimeModule,
+    PipeModule
   ]
 })
 export class TodoModule { }

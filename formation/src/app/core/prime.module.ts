@@ -8,6 +8,7 @@ import { TableModule } from 'primeng/table';
 
 @NgModule({
     //imports: [ButtonModule],
+
     exports: [ButtonModule, CardModule, PanelModule, InputTextModule, MessageModule, TableModule]
 })
 export class PrimeModule { }
