@@ -6,6 +6,7 @@ import { TodoRoutingModule } from './todo-routing.module';
 import { TodoService } from '../../core/services/todo.service';
 import { PrimeModule } from '../../core/prime.module';
 import { PipeModule } from '../../core/pipes/pipe.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -21,7 +22,8 @@ import { PipeModule } from '../../core/pipes/pipe.module';
     CommonModule,
     TodoRoutingModule,
     PrimeModule,
-    PipeModule
+    PipeModule,
+    ReactiveFormsModule
   ]
 })
 export class TodoModule { }

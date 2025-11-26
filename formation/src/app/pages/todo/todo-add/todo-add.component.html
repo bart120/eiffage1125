@@ -1,1 +1,18 @@
-<p>todo-add works!</p>
+<h1>Ajouter une tâche</h1>
+
+<form [formGroup]="formTodo" (ngSubmit)="onSubmit()" class="flex flex-col gap-4 w-full sm:w-56">
+    <div class="flex flex-col gap-1">
+        <input pInputText type="text" id="title" placeholder="Titre" formControlName="title" />
+    </div>
+    <div class="flex items-center gap-2">
+        <p-checkbox formControlName="completed" [binary]="true" inputId="completed" />
+        <label for="completed"> Fait ? </label>
+    </div>
+    <div class="flex flex-col gap-1">
+        <p-select formControlName="userId" [options]="users" optionValue="id" optionLabel="name"
+            placeholder="Select a user" class="w-full md:w-56" />
+    </div>
+
+
+    <button pButton severity="secondary" type="submit"><span pButtonLabel>Submit</span></button>
+</form>
