@@ -1,6 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { TodoService } from '../../../core/services/todo.service';
 import { TodoModel } from '../../../core/models/todo.model';
+import { catchError, Observable, of, shareReplay } from 'rxjs';
+import { UserModel } from '../../../core/models/user.model';
 
 @Component({
   selector: 'app-todo-list',
@@ -11,6 +13,8 @@ export class TodoListComponent implements OnInit {
 
   todos: Array<TodoModel> = [];
 
+  users = new Map<number, Observable<UserModel>>();
+
   todoServ: TodoService = inject(TodoService);
 
   constructor(/*private todoService: TodoService*/) {
@@ -20,6 +24,13 @@ export class TodoListComponent implements OnInit {
   ngOnInit(): void {
     this.todoServ.getTodosByUserId(1).subscribe(data => { this.todos = data; console.log(this.todos); });
 
+  }
+
+  getUserById(userId: number): Observable<UserModel> {
+    if (!this.users.has(userId)) {
+      this.users.set(userId, this.todoServ.getUserById(userId).pipe(shareReplay(1)));
+    }
+    return this.users.get(userId)!;
   }
 
   /*async ngOnInit() {

@@ -26,8 +26,8 @@ export class TodoService {
         return this.httpClient.get<Array<TodoModel>>(`${environment.API_URL}/todos`)
             .pipe(map(todos =>
                 todos.filter(t => t.userId === userId)
-                    .sort(this.compareTitles)
-                    .map(t => { t.user$ = this.getUserById(t.userId); return t; })));
+                    .sort(this.compareTitles)));
+        //.map(t => { t.user$ = this.getUserById(t.userId); return t; })));
     }
 
 

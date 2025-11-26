@@ -12,9 +12,10 @@
     <ng-template #body let-todo>
         <tr>
             <td>{{ todo.userId }}</td>
-            <td>
+            <!--<td>
                 {{$any(todo.user$ | async)?.name}}
-            </td>
+            </td>-->
+            <td>{{ $any(getUserById(todo.userId) | async)?.name }}</td>
             <td>{{ todo.id }}</td>
             <td>{{ todo.title }}</td>
             <td>{{ todo.completed }}</td>
